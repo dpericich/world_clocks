@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Clocks from './Clocks';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location : [
+        {
+          name: 'New York',
+          offset: -240,
+        },
+        {
+          name : 'Paris',
+          offset: 120,
+        },
+        {
+          name: 'Tokyo',
+          offset: 540,
+        }
+      ]
+    }
+
+  }
+  render() {
+
+    const wallStyle = {
+      display : 'flex',
+  
+    }
+
+    return (
+      <div style={wallStyle}>
+        <Clocks location={this.state.location}/>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
