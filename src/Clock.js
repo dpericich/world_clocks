@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Clock({ name, offset, backgroundImage }) {
+function Clock({ name, offset, backgroundImage, time}) {
 
     const wallStyle = {
         textAlign: 'center',
@@ -62,24 +62,23 @@ function Clock({ name, offset, backgroundImage }) {
         //So that we can pass the offset in for each city
 
         // let date = new Date();
-        let date = new Date();
-        let utc_offset = date.getTimezoneOffset();
-        date.setMinutes(date.getMinutes() + utc_offset);
-        date.setMinutes(date.getMinutes() + offset);
-        console.log(date);
+        // let utc_offset = date.getTimezoneOffset();
+        // date.setMinutes(date.getMinutes() + utc_offset);
+        // date.setMinutes(date.getMinutes() + offset);
+        console.log(time)
 
 
-        let setSeconds = (((date.getSeconds() / 60) * 360) + 90);
+        let setSeconds = (((time.getSeconds() / 60) * 360) + 90);
         const secondHand = document.querySelector('.second');
         secondHand.style.transform = `rotate(${setSeconds}deg)`;
         
     
-        let setMinutes = (((date.getMinutes() / 60) * 360) + 90);
+        let setMinutes = (((time.getMinutes() / 60) * 360) + 90);
         const minuteHand = document.querySelector('.minute');
         minuteHand.style.transform = `rotate(${setMinutes}deg)`;
     
         
-        let currentHour = (date.getHours() > 12) ? date.getHours() - 12 : date.getHours();
+        let currentHour = (time.getHours() > 12) ? time.getHours() - 12 : time.getHours();
         let setHours = (((currentHour / 12)* 360) + 90);
         const hourHand = document.querySelector('.hour');
         hourHand.style.transform = `rotate(${setHours}deg)`;
@@ -87,7 +86,7 @@ function Clock({ name, offset, backgroundImage }) {
 
     };
 
-    setInterval(setDate, 1000);
+    // setInterval(setDate, 1000);
 
     return (
         <div style={wallStyle}>

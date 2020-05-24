@@ -6,7 +6,7 @@ class Clocks extends Component {
         return (
             this.props.locations.map(location => 
                 <Clock key = {location.id} name={location.name} offset={location.offset} 
-                backgroundImage={location.backgroundImage}/>
+                backgroundImage={location.backgroundImage} time={location.time}/>
             )
         )
     }
