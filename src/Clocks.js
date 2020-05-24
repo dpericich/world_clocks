@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Clock from './Clock'
 
-function Clocks() {
-    return (
-        <div>
-            
-        </div>
-    )
+class Clocks extends Component {
+    render() {
+        return (
+            this.props.locations.map(location => 
+                <Clock key = {location.id} name={location.name} offset={location.offset} 
+                backgroundImage={location.backgroundImage}/>
+            )
+        )
+    }
 }
 
 
